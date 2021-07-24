@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Guess = () => {
-  const [word, setWord] = useState([""]);
+  const [word, setWord] = useState("");
 
   // niz reci koje treba pogoditi
   const words = [
@@ -11,19 +11,31 @@ const Guess = () => {
     "The Lord of the rings",
   ];
 
-  const randomWord = Math.floor(Math.random() * words.length);
+  const generateWord = () => {
+    const randomWord = Math.floor(Math.random() * words.length);
 
-  const guessWord = words[randomWord];
-  const [...charWordArray] = guessWord;
-  console.log(charWordArray);
-  setWord(charWordArray);
+    const guessWord = words[randomWord];
+    const [...charWordArray] = guessWord;
+    // console.log(charWordArra);
+    setWord(charWordArray);
+  };
+
+  console.log(word);
+
+  const testArr = ["a", "b", "c", "d"];
+
+  // setWord(charWordArray);
   // return word.replaceAll(/./g, "_");
 
   // napraviti dugme Generate koje daje random rec iz words niza
 
   return (
     <div className="text">
-      <h3 className="guess"> sample word</h3>
+      <button className="generateButton" onClick={generateWord}>
+        Generate Word
+      </button>
+      <h3 className="guess">{word}</h3>
+      <p>{testArr}</p>
     </div>
   );
 };
