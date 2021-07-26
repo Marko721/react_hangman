@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Guess = () => {
   const [word, setWord] = useState("");
@@ -9,7 +9,10 @@ const Guess = () => {
     "Motivational quotes",
     "Working hard",
     "The Lord of the rings",
+    "Healthy habits",
   ];
+
+  useEffect(() => {});
 
   const generateWord = () => {
     const randomWord = Math.floor(Math.random() * words.length);
@@ -20,10 +23,11 @@ const Guess = () => {
     setWord(charWordArray);
   };
 
+  console.log(typeof word);
   console.log(word);
-
-  const testArr = ["a", "b", "c", "d"];
-
+  // const underWord = word.map((letter) => {
+  //   letter.replaceAll(/./g, "_");
+  // });
   // setWord(charWordArray);
   // return word.replaceAll(/./g, "_");
 
@@ -35,7 +39,6 @@ const Guess = () => {
         Generate Word
       </button>
       <h3 className="guess">{word}</h3>
-      <p>{testArr}</p>
     </div>
   );
 };
