@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Guess = () => {
   const [word, setWord] = useState([]);
+  const [hiddenWord, setHiddenWord] = useState([]);
+  const [letters, setLetters] = useState([]);
 
   // niz reci koje treba pogoditi
   const words = [
@@ -17,6 +19,8 @@ const Guess = () => {
 
     const guessWord = words[randomWord];
     const [...charWordArray] = guessWord;
+    setWord(charWordArray);
+
     let underscoreLetter = [];
 
     for (const letter of charWordArray) {
@@ -26,25 +30,23 @@ const Guess = () => {
         underscoreLetter += "_";
       }
     }
-    setWord(underscoreLetter);
+    setHiddenWord(underscoreLetter);
   };
 
-  // console.log(typeof word);
   // console.log(word);
-  // const underWord = word.map((letter) => {
-  //   letter.replaceAll(/./g, "_");
-  // });
-  // setWord(charWordArray);
-  // return word.replaceAll(/./g, "_");
 
-  // napraviti dugme Generate koje daje random rec iz words niza
+  document.addEventListener("keypress", (e) => {
+    // setLetters(e.key);
+    letters.push(e.key);
+    console.log(letters);
+  });
 
   return (
     <div className="text">
       <button className="generateButton" onClick={generateWord}>
         Generate Word
       </button>
-      <h3 className="guess">{word}</h3>
+      <h3 className="guess">{hiddenWord}</h3>
     </div>
   );
 };
