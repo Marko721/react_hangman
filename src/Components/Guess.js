@@ -15,16 +15,16 @@ const Guess = () => {
   ];
 
   const generateWord = () => {
-    const randomWord = Math.floor(Math.random() * words.length);
+    const randomNumber = Math.floor(Math.random() * words.length);
 
-    const guessWord = words[randomWord];
+    const guessWord = words[randomNumber];
     const [...charWordArray] = guessWord;
     setWord(charWordArray);
 
     let underscoreLetter = [];
 
-    for (const letter of charWordArray) {
-      if (letter === " ") {
+    for (const char of charWordArray) {
+      if (char === " ") {
         underscoreLetter += "  ";
       } else {
         underscoreLetter += "_";
