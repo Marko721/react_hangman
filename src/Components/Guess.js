@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Guess = () => {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState([]);
 
   // niz reci koje treba pogoditi
   const words = [
@@ -12,19 +12,25 @@ const Guess = () => {
     "Healthy habits",
   ];
 
-  useEffect(() => {});
-
   const generateWord = () => {
     const randomWord = Math.floor(Math.random() * words.length);
 
     const guessWord = words[randomWord];
     const [...charWordArray] = guessWord;
-    // console.log(charWordArra);
-    setWord(charWordArray);
+    let underscoreLetter = [];
+
+    for (const letter of charWordArray) {
+      if (letter === " ") {
+        underscoreLetter += "  ";
+      } else {
+        underscoreLetter += "_";
+      }
+    }
+    setWord(underscoreLetter);
   };
 
-  console.log(typeof word);
-  console.log(word);
+  // console.log(typeof word);
+  // console.log(word);
   // const underWord = word.map((letter) => {
   //   letter.replaceAll(/./g, "_");
   // });
