@@ -1,7 +1,9 @@
 import { useState } from "react";
+import Guess from "./Guess";
 
 const Generate = () => {
   const [word, setWord] = useState([]);
+  const [hiddenWord, setHiddenWord] = useState([]);
   // niz reci koje treba pogoditi
   const words = [
     "Tuning",
@@ -22,21 +24,22 @@ const Generate = () => {
 
     for (const char of charWordArray) {
       if (char === " ") {
-        underscoreLetter += "  ";
+        underscoreLetter.push(" ");
       } else {
-        underscoreLetter += "_";
+        underscoreLetter.push("_");
       }
     }
     setHiddenWord(underscoreLetter);
-
-    return (
-      <div>
-        <button className="generateButton" onClick={generateWord}>
-          Generate Word
-        </button>
-      </div>
-    );
   };
+
+  return (
+    <div>
+      <button className="generateButton" onClick={generateWord}>
+        Generate Word
+      </button>
+      <Guess word={word} hiddenWord={hiddenWord} />
+    </div>
+  );
 };
 
 export default Generate;

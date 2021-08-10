@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const Guess = () => {
-  const [hiddenWord, setHiddenWord] = useState([]);
+const Guess = ({ hiddenWord, word }) => {
   const [letters, setLetters] = useState([]);
 
   // console.log(word);
