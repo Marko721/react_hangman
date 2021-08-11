@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Guess from "./Guess";
+import Cicaglisa from "./Cicaglisa";
 
 const Generate = () => {
   const [word, setWord] = useState([]);
@@ -34,9 +35,12 @@ const Generate = () => {
 
   return (
     <div>
-      <button className="generateButton" onClick={generateWord}>
-        Generate Word
-      </button>
+      <div className="button">
+        <button className="generateButton" onClick={generateWord}>
+          Generate Word
+        </button>
+      </div>
+      <Cicaglisa />
       <Guess word={word} hiddenWord={hiddenWord} />
     </div>
   );

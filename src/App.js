@@ -8,8 +8,6 @@ function App() {
     <div className="App">
       <div className="container">
         <Generate />
-        <Cicaglisa />
-        <Guess />
       </div>
     </div>
   );

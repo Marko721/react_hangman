@@ -3,8 +3,6 @@ import { useState } from "react";
 const Guess = ({ hiddenWord, word }) => {
   const [letters, setLetters] = useState([]);
 
-  // console.log(word);
-
   document.addEventListener("keypress", (e) => {
     // setLetters(e.key);
     letters.push(e.key);
