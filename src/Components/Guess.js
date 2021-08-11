@@ -2,12 +2,18 @@ import { useState } from "react";
 
 const Guess = ({ hiddenWord, word }) => {
   const [letters, setLetters] = useState([]);
+  const joinedWord = word.join("");
 
   document.addEventListener("keypress", (e) => {
-    // setLetters(e.key);
-    letters.push(e.key);
-    console.log(letters);
+    if (e.key.match(/[a-z]/i)) {
+      let letter = e.key.toUpperCase();
+      console.log(letter);
+      // pozivanje funckije koja proverava
+      checkAndReplace(letter, word);
+    }
   });
+
+  const checkAndReplace = (letter, word) => {};
 
   return (
     <div className="text">
