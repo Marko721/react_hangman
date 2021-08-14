@@ -1,26 +1,36 @@
 import { useState, useEffect } from "react";
 
-const Guess = ({ hiddenWord, word }) => {
+const Guess = ({ word, hiddenWord }) => {
+  // pogodjena slova koja su ukucana
   const [letters, setLetters] = useState([]);
-  // const [keyPressed, setKeyPressed] = useState(false);
+  // pogresna slova koja su ukucana
+  const [guseedLetters, setGuessedLetters] = useState([]);
+  // spojena rec posle za proveru
   const joinedWord = word.join("");
-
-  const keyPressedHandler = (e) => {
-    console.log(e.key);
-    if (e.key.match(/[a-z]/i)) {
-      // setKeyPressed(true);
-      setLetters(e.key);
-    }
-
-    checkAndReplace();
-  };
 
   useEffect(() => {
     window.addEventListener("keydown", keyPressedHandler);
   }, []);
 
-  const checkAndReplace = (e) => {
-    console.log(letters);
+  // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje
+  const keyPressedHandler = (e) => {
+    if (e.key.match(/[a-z]/i)) {
+      const letter = e.key.toUpperCase();
+
+      checkAndReplace(letter, word);
+    }
+  };
+
+  const checkAndReplace = (letter, word) => {
+    if (word.includes(letter)) {
+      for (let i = 0; i <= word.length; i++) {
+        if (word[i] == letter) {
+          hiddenWord[i] = letter;
+          console.log(hiddenWord);
+          // wordString.innerHTML = hiddenWord.join("");
+        }
+      }
+    }
   };
 
   return (
