@@ -41,7 +41,11 @@ const Generate = () => {
         </button>
       </div>
       <Cicaglisa />
-      <Guess word={word} hiddenWord={hiddenWord} />
+      <Guess
+        word={word}
+        hiddenWord={hiddenWord}
+        setHiddenWord={setHiddenWord}
+      />
     </div>
   );
 };
