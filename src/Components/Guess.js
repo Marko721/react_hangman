@@ -10,8 +10,6 @@ const Guess = ({ word, hiddenWord, setHiddenWord }) => {
 
   useEffect(() => {
     window.addEventListener("keydown", keyPressedHandler);
-
-    const updateUi = () => {};
   }, [hiddenWord]); // svaki put kad se promeni hiddenWord updateuj
 
   // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje

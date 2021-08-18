@@ -8,10 +8,10 @@ const Generate = () => {
   // niz reci koje treba pogoditi
   const words = [
     "Tuning",
-    "Motivational quotes",
-    "Working hard",
-    "The Lord of the rings",
-    "Healthy habits",
+    // "Motivational quotes",
+    // "Working hard",
+    // "The Lord of the rings",
+    // "Healthy habits",
   ];
 
   const generateWord = () => {
