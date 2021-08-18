@@ -1,6 +1,4 @@
 import "./App.css";
-import Cicaglisa from "./Components/Cicaglisa";
-import Guess from "./Components/Guess";
 import Generate from "./Components/Generate";
 
 function App() {

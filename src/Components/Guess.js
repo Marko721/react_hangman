@@ -1,16 +1,27 @@
 import { useState, useEffect } from "react";
 
-const Guess = ({ word, hiddenWord, setHiddenWord }) => {
-  // pogodjena slova koja su ukucana
-  const [letters, setLetters] = useState([]);
+const Guess = ({ word }) => {
+  // rec pretvorena u donje crte
+  const [hiddenWord, setHiddenWord] = useState([]);
   // pogresna slova koja su ukucana
-  const [guseedLetters, setGuessedLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]);
   // spojena rec posle za proveru
   const joinedWord = word.join("");
 
   useEffect(() => {
     window.addEventListener("keydown", keyPressedHandler);
-  }, [hiddenWord]); // svaki put kad se promeni hiddenWord updateuj
+
+    const underscoreLetter = [];
+    for (const char of word) {
+      if (char === " ") {
+        underscoreLetter.push(" ");
+      } else {
+        underscoreLetter.push("_");
+      }
+    }
+    console.log(underscoreLetter);
+    // setHiddenWord(underscoreLetter); //Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+  }, [word, hiddenWord]); // svaki put kad se promeni hiddenWord updateuj
 
   // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje
   const keyPressedHandler = (e) => {

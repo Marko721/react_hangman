@@ -4,7 +4,7 @@ import Cicaglisa from "./Cicaglisa";
 
 const Generate = () => {
   const [word, setWord] = useState([]);
-  const [hiddenWord, setHiddenWord] = useState([]);
+
   // niz reci koje treba pogoditi
   const words = [
     "Tuning",
@@ -20,17 +20,6 @@ const Generate = () => {
     const guessWord = words[randomNumber];
     const [...charWordArray] = guessWord;
     setWord(charWordArray);
-
-    let underscoreLetter = [];
-
-    for (const char of charWordArray) {
-      if (char === " ") {
-        underscoreLetter.push(" ");
-      } else {
-        underscoreLetter.push("_");
-      }
-    }
-    setHiddenWord(underscoreLetter);
   };
 
   return (
@@ -41,11 +30,7 @@ const Generate = () => {
         </button>
       </div>
       <Cicaglisa />
-      <Guess
-        word={word}
-        hiddenWord={hiddenWord}
-        setHiddenWord={setHiddenWord}
-      />
+      <Guess word={word} />
     </div>
   );
 };
