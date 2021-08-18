@@ -18,7 +18,7 @@ const Generate = () => {
     const randomNumber = Math.floor(Math.random() * words.length);
 
     const guessWord = words[randomNumber];
-    const [...charWordArray] = guessWord;
+    const [...charWordArray] = guessWord.toUpperCase();
     setWord(charWordArray);
   };
 

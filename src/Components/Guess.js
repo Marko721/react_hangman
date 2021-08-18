@@ -19,7 +19,6 @@ const Guess = ({ word }) => {
         underscoreLetter.push("_");
       }
     }
-    console.log(underscoreLetter);
     // setHiddenWord(underscoreLetter); //Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
   }, [word, hiddenWord]); // svaki put kad se promeni hiddenWord updateuj
 
@@ -32,15 +31,20 @@ const Guess = ({ word }) => {
     }
   };
 
+  // for (let i = 0; i <= word.length; i++) {
+  //   console.log(word[i]);
+  //   if (word[i] == "u") {
+  //     word[i] = "TOO";
+  //   }
+  // }
+
   const checkAndReplace = (letter, word) => {
     if (word.includes(letter)) {
       for (let i = 0; i <= word.length; i++) {
         if (word[i] == letter) {
           // hiddenWord[i] = letter;
-          setHiddenWord((hiddenWord[i] = letter));
 
-          console.log(word.length);
-          console.log(hiddenWord);
+          setHiddenWord((hiddenWord[i] = letter));
           // wordString.innerHTML = hiddenWord.join("");
         }
       }
