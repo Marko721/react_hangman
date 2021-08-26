@@ -9,7 +9,7 @@ const Guess = ({ word }) => {
   const joinedWord = word.join("");
 
   useEffect(() => {
-    displayHiddenWord();
+    // displayHiddenWord();
 
     window.addEventListener("keydown", handleKeyPress);
 
@@ -34,6 +34,7 @@ const Guess = ({ word }) => {
           const [...underscoreLetter] = hiddenWord;
           underscoreLetter[i] = letter;
           setHiddenWord(underscoreLetter);
+          // wordString.innerHTML = hiddenWord.join("");
         }
       }
     }
@@ -52,13 +53,6 @@ const Guess = ({ word }) => {
   };
 
   console.log(hiddenWord);
-
-  // for (let i = 0; i <= word.length; i++) {
-  //   console.log(word[i]);
-  //   if (word[i] == "u") {
-  //     word[i] = "TOO";
-  //   }
-  // }
 
   return (
     <div className="text">
