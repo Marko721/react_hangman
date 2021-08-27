@@ -24,6 +24,21 @@ const Guess = ({ word }) => {
       }
     };
     window.addEventListener("keydown", handleKeyPress);
+
+    const checkAndReplace = (letter, word) => {
+      if (word.includes(letter)) {
+        for (let i = 0; i <= word.length; i++) {
+          if (word[i] === letter) {
+            // hiddenWord[i] = letter;
+            const [...underscoreLetter] = hiddenWord;
+            underscoreLetter[i] = letter;
+            setHiddenWord(underscoreLetter);
+            console.log(hiddenWord);
+            // wordString.innerHTML = hiddenWord.join("");
+          }
+        }
+      }
+    };
   }, []);
 
   const displayHiddenWord = () => {
@@ -47,21 +62,6 @@ const Guess = ({ word }) => {
   //     checkAndReplace(letter, word);
   //   }
   // };
-
-  const checkAndReplace = (letter, word) => {
-    if (word.includes(letter)) {
-      for (let i = 0; i <= word.length; i++) {
-        if (word[i] == letter) {
-          // hiddenWord[i] = letter;
-          const [...underscoreLetter] = hiddenWord;
-          underscoreLetter[i] = letter;
-          setHiddenWord(underscoreLetter);
-          console.log(hiddenWord);
-          // wordString.innerHTML = hiddenWord.join("");
-        }
-      }
-    }
-  };
 
   return (
     <div className="text">
