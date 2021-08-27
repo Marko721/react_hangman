@@ -15,6 +15,17 @@ const Guess = ({ word }) => {
     // setHiddenWord(underscoreLetter); //Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
   }, [word]); // svaki put kad se promeni word updateuj
 
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key.match(/[a-z]/i)) {
+        const letter = e.key.toUpperCase();
+
+        checkAndReplace(letter, word);
+      }
+    };
+    window.addEventListener("keydown", handleKeyPress);
+  }, []);
+
   const displayHiddenWord = () => {
     const underscoreLetter = [];
     for (const char of word) {
@@ -28,14 +39,14 @@ const Guess = ({ word }) => {
   };
 
   // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje
-  const handleKeyPress = (e) => {
-    console.log("cao");
-    if (e.key.match(/[a-z]/i)) {
-      const letter = e.key.toUpperCase();
+  // const handleKeyPress = (e) => {
+  //   console.log("cao");
+  //   if (e.key.match(/[a-z]/i)) {
+  //     const letter = e.key.toUpperCase();
 
-      checkAndReplace(letter, word);
-    }
-  };
+  //     checkAndReplace(letter, word);
+  //   }
+  // };
 
   const checkAndReplace = (letter, word) => {
     if (word.includes(letter)) {
@@ -45,6 +56,7 @@ const Guess = ({ word }) => {
           const [...underscoreLetter] = hiddenWord;
           underscoreLetter[i] = letter;
           setHiddenWord(underscoreLetter);
+          console.log(hiddenWord);
           // wordString.innerHTML = hiddenWord.join("");
         }
       }
@@ -52,7 +64,7 @@ const Guess = ({ word }) => {
   };
 
   return (
-    <div className="text" onKeyDown={(e) => handleKeyPress(e)}>
+    <div className="text">
       <h3 className="guess">{hiddenWord}</h3>
     </div>
   );
