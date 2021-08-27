@@ -9,10 +9,9 @@ const Guess = ({ word }) => {
   const joinedWord = word.join("");
 
   useEffect(() => {
+    displayHiddenWord();
     // displayHiddenWord();
-
-    window.addEventListener("keydown", handleKeyPress);
-
+    // window.addEventListener("keydown", handleKeyPress);
     // setHiddenWord(underscoreLetter); //Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
   }, [word]); // svaki put kad se promeni word updateuj
 
@@ -52,10 +51,8 @@ const Guess = ({ word }) => {
     setHiddenWord(underscoreLetter);
   };
 
-  console.log(hiddenWord);
-
   return (
-    <div className="text">
+    <div className="text" onKeyDown={(e) => handleKeyPress(e)}>
       <h3 className="guess">{hiddenWord}</h3>
     </div>
   );
