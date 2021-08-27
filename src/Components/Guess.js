@@ -15,6 +15,18 @@ const Guess = ({ word }) => {
     // setHiddenWord(underscoreLetter); //Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
   }, [word]); // svaki put kad se promeni word updateuj
 
+  const displayHiddenWord = () => {
+    const underscoreLetter = [];
+    for (const char of word) {
+      if (char === " ") {
+        underscoreLetter.push(" ");
+      } else {
+        underscoreLetter.push("_");
+      }
+    }
+    setHiddenWord(underscoreLetter);
+  };
+
   // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje
   const handleKeyPress = (e) => {
     console.log("cao");
@@ -37,18 +49,6 @@ const Guess = ({ word }) => {
         }
       }
     }
-  };
-
-  const displayHiddenWord = () => {
-    const underscoreLetter = [];
-    for (const char of word) {
-      if (char === " ") {
-        underscoreLetter.push(" ");
-      } else {
-        underscoreLetter.push("_");
-      }
-    }
-    setHiddenWord(underscoreLetter);
   };
 
   return (
