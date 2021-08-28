@@ -29,7 +29,7 @@ const Generate = () => {
           Generate Word
         </button>
       </div>
-      <Cicaglisa />
+      {word.length > 1 && <Cicaglisa />}
       <Guess word={word} />
     </div>
   );
