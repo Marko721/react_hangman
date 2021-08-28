@@ -5,7 +5,7 @@ import Cicaglisa from "./Cicaglisa";
 const Generate = () => {
   const [word, setWord] = useState([]);
 
-  // niz reci koje treba pogoditi
+  // word to guess
   const words = [
     "Tuning",
     // "Motivational quotes",
