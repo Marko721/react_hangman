@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 const Guess = ({ word }) => {
-  // rec pretvorena u donje crte
+  // word converted to underscores
   const [hiddenWord, setHiddenWord] = useState([]);
-  // pogresna slova koja su ukucana
+  // wrong letters typed
   // const [guessedLetters, setGuessedLetters] = useState([]);
-  // spojena rec posle za proveru
+  // joined word for win / los check
   // const joinedWord = word.join("");
 
   useEffect(() => {
@@ -55,16 +55,6 @@ const Guess = ({ word }) => {
       }
     };
   }, []);
-
-  // proverava da li je kliknuto slovo i prosledjuje slovo funkciji koja se uporedjuje
-  // const handleKeyPress = (e) => {
-  //   console.log("cao");
-  //   if (e.key.match(/[a-z]/i)) {
-  //     const letter = e.key.toUpperCase();
-
-  //     checkAndReplace(letter, word);
-  //   }
-  // };
 
   return (
     <div className="text">
