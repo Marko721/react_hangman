@@ -29,7 +29,8 @@ const Guess = ({ word }) => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key.match(/[a-z]/i)) {
+      console.log(e);
+      if (e.keyCode >= 65 && e.keyCode <= 90) {
         const letter = e.key.toUpperCase();
 
         checkAndReplace(letter);
@@ -39,6 +40,7 @@ const Guess = ({ word }) => {
     window.addEventListener("keydown", handleKeyPress);
 
     const checkAndReplace = (letter) => {
+      console.log();
       if (word.includes(letter)) {
         for (let i = 0; i <= word.length; i++) {
           if (word[i] === letter) {
