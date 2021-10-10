@@ -38,9 +38,7 @@ const Guess = ({ word }) => {
     };
 
     window.addEventListener("keydown", handleKeyPress);
-
     const checkAndReplace = (letter) => {
-      console.log();
       if (word.includes(letter)) {
         for (let i = 0; i <= word.length; i++) {
           if (word[i] === letter) {
@@ -48,7 +46,7 @@ const Guess = ({ word }) => {
             const [...underscoreLetter] = hiddenWord;
             underscoreLetter[i] = letter;
             setHiddenWord(underscoreLetter);
-            console.log(hiddenWord);
+
             // wordString.innerHTML = hiddenWord.join("");
           }
         }
